@@ -1,5 +1,6 @@
 " My Vimrc file
 " Maintainer: swaroop@swaroopch.com
+" Forked by: zen@itram.es
 
 "" Vim, not Vi.
 " This must be first, because it changes other options as a side effect.
@@ -78,6 +79,9 @@ set tabstop=4
 set expandtab
 set smarttab
 set backspace=indent,eol,start
+
+" Set mouse, for moments of desperation.
+set mouse=a
 
 " Set up backup dir where the swap files are stored
 set dir=~/.vim/backup,~/tmp,/tmp

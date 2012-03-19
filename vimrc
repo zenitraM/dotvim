@@ -63,6 +63,8 @@ Bundle 'tpope/vim-unimpaired'
 " Enable syntax highlighting.
 syntax on
 
+" Enable hidden saving
+set hidden
 " Line endings should be Unix-style unless the file is from someone else.
 set fileformat=unix
 au BufNewFile * set fileformat=unix
@@ -82,6 +84,7 @@ set backspace=indent,eol,start
 
 " Set mouse, for moments of desperation.
 set mouse=a
+set mousemodel=extend
 
 " Set up backup dir where the swap files are stored
 set dir=~/.vim/backup,~/tmp,/tmp
@@ -255,6 +258,24 @@ autocmd BufNewFile,BufRead *.text setlocal ft=markdown
 autocmd FileType markdown TextMode
 autocmd BufNewFile,BufRead requirements.txt setlocal ft=
 
+" Remapping leader
+let mapleader = ","
+" Remapping leader
+let mapleader = ","
+" Remapping leader
+let mapleader = ","
+" Remapping leader
+let mapleader = ","
+" Remapping leader
+let mapleader = ","
+" Remapping leader
+let mapleader = ","
+" Remapping leader
+let mapleader = ","
+" Remapping leader
+let mapleader = ","
+" Remapping leader
+let mapleader = ","
 " Allow these file extensions to be accessed via 'gf' of only the name, for
 " e.g. gf on [[AnotherPage]] should go to AnotherPage.md
 set suffixesadd=.md,.txt

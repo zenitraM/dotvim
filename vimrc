@@ -20,10 +20,14 @@ Bundle 'gmarik/vundle'
 " Git Repos by http://vim-scripts.org ( get names from https://github.com/vim-scripts/following )
 Bundle 'Conque-Shell'
 Bundle 'JSON.vim'
+Bundle 'NrrwRgn'
 Bundle 'VimClojure'
+Bundle 'calendar.vim--Matsumoto'
 Bundle 'django.vim'
 Bundle 'nginx.vim'
 Bundle 'python.vim--Vasiliev'
+Bundle 'utl.vim'
+"Bundle 'Conque-Shell'
 
 " Git Repos on GitHub
 " Inspired from http://sontek.net/turning-vim-into-a-modern-python-ide
@@ -34,6 +38,8 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'carlosvillu/coffeScript-VIM-Snippets'
 Bundle 'gmarik/ide-popup.vim'
 Bundle 'godlygeek/tabular'
+Bundle 'hsitz/VimOrganizer'
+Bundle 'juvenn/mustache.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
@@ -439,15 +445,11 @@ command CoffeeShowJavascript :CoffeeCompile watch vert | setlocal scrollbind | w
 command CoffeeStopJavascript :CoffeeCompile unwatch | only
 let g:coffee_make_options='--bare --lint'
 
-" Bundle 'Conque-Shell'
-map <Leader>e :<C-u>call conque_term#send_selected(visualmode())<CR><CR>
-command Shell :set nolist | ConqueTermSplit bash
-command PythonShell :set nolist | ConqueTermSplit python
-command RailsShell :set nolist | ConqueTermSplit rails console
-"command FlaskShell :set nolist | ConqueTermSplit env DEV=yes python -i play.py
-
-" Sudo to write
-cmap w!! w !sudo tee % >/dev/null
+" Bundle 'hsitz/VimOrganizer'
+" Org Mode
+" https://github.com/hsitz/VimOrganizer/blob/master/INSTALL.txt
+autocmd! BufRead,BufWrite,BufWritePost,BufNewFile *.org
+autocmd BufEnter *.org call org#SetOrgFileType()
 
 " Bundle 'tpope/vim-fugitive'
 " http://vimcasts.org/blog/2011/05/the-fugitive-series/
@@ -498,15 +500,20 @@ let g:is_bash = 1
 command Reedit :tabdo windo edit!
 
 " Default color scheme
-if has("gui_running")
-    set background=light
-else
-    set background=dark
-endif
+set background=dark
+"if has("gui_running")
+    "set background=light
+"else
+    "set background=dark
+"endif
 
 " NOTE: On Mac OS X, best used with [iTerm 2](http://www.iterm2.com)
-if isdirectory(expand("~/.vim/bundle/vim-colors-solarized", ":p"))
-    colorscheme solarized
+if has('mac')
+    if isdirectory(expand("~/.vim/bundle/vim-colors-solarized", ":p"))
+        colorscheme solarized
+    endif
+else
+    colorscheme default
 endif
 
 " Mac
